@@ -5,3 +5,4 @@
 ## How do I run the program?
 - You may run the program by hitting start on the console.
 ## What does the program look like? (visual)
+[Lab01Visual](./Lab01-Visual.png)
