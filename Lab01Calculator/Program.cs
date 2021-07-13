@@ -6,13 +6,22 @@ namespace Lab01Calculator
     {
         public static void Main(string[] args)
         {
-            StartSequence();
+            try 
+            {    
+                StartSequence();
+            }
+            catch( Exception e) 
+            {
+                Console.WriteLine($"Something went wrong ({e}), please try again!");
+            }
+            finally
+            {
+                Console.WriteLine("Program terminated.");
+            }
         }
 
         public static void StartSequence() // initial startup.
         {
-            try
-            {
                 Console.WriteLine("Please enter a number greater than zero (0).");
                 int arrSize = Convert.ToInt32(Console.ReadLine());
                 int[] arr = new int[arrSize];
@@ -34,15 +43,7 @@ namespace Lab01Calculator
                 Console.WriteLine($"The sum of the array is {sum}");
                 Console.WriteLine($"{sum} * {mult} = {product}");
                 Console.WriteLine($"{product} / {divi} = {quotient}");
-            }
-            catch( Exception e) 
-            {
-                Console.WriteLine($"Something went wrong ({e}), please try again!");
-            }
-            finally
-            {
-                Console.WriteLine("Program terminated.");
-            }
+            
         }
 
         public static int[] Populate(int[] arr, int size) // filling in each value by prompting the user for input.
