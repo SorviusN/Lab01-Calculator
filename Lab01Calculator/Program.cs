@@ -9,7 +9,7 @@ namespace Lab01Calculator
             StartSequence();
         }
 
-        public static void StartSequence()
+        public static void StartSequence() // initial startup.
         {
             try
             {
@@ -20,11 +20,12 @@ namespace Lab01Calculator
                 int sum = GetSum(populatedArr);
 
                 int mult = 0; // initializing the multiplier to be used in the function.
-                int product = GetProduct(arr, sum, mult);
+                int product = GetProduct(arr, sum, mult); // calling function
 
                 int divi = 1; //initializing the divisor to be used in the function.
-                decimal quotient = GetQuotient(product, divi);
+                decimal quotient = GetQuotient(product, divi); // calling function
 
+                // After this point data will only be printed and not expected. No more functions to call as well.
                 Console.WriteLine($"Your array size is{arrSize}");
 
                 Console.WriteLine("The numbers in the array are:");
@@ -62,27 +63,26 @@ namespace Lab01Calculator
             {
                 sum += val;
             }
-            if (sum < 20) throw new Exception($"Value of {sum} is too low.");
+            if (sum < 20) throw new Exception($"Value of {sum} is too low."); // Throws an error if given sum is too low.
             return sum;
         }
 
-        public static int GetProduct(int[] arr, int sum, int mult)
+        public static int GetProduct(int[] arr, int sum, int mult) // Multipling the sum of the array by a specified value in the array.
         {
             Console.WriteLine($"Please enter a number between 1 and {arr.Length}.");
 
             mult = Convert.ToInt32(Console.ReadLine());
-            if (mult > arr.Length || mult < 1) throw new IndexOutOfRangeException();
             int product = (sum * arr[mult]);
 
             return product;
         }
 
-        public static decimal GetQuotient(int product, int divi)
+        public static decimal GetQuotient(int product, int divi) // Dividing the multiplied number by an input value.
         {
             Console.WriteLine($"Please enter in a number to divide your product {product} by.");
 
             divi = Convert.ToInt32(Console.ReadLine());
-            if (divi == 0) throw new DivideByZeroException();
+            if (divi == 0) throw new DivideByZeroException(); // Handle Divbyzero exception. Throw an error if the case is true.
 
             decimal quotient = Decimal.Divide(product, divi);
             return quotient;
